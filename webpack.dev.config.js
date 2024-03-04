@@ -1,20 +1,20 @@
-/**
- * base.conf.js
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 18.08.2016
- */
+const path = require('path');
 
-// Webpack Base Settings
 module.exports = {
+  mode: 'development',
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'react-metismenu.js',
+    library: 'react-metismenu',
+    libraryTarget: 'umd',
+  },
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
   },
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx',
-    ],
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -30,4 +30,7 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    port: 9000
+  }
 };

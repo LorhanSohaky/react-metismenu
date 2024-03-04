@@ -5,22 +5,28 @@
  */
 
 const config = require('./base.conf');
+const path = require('path');
 
 // Webpack Development Settings
 module.exports = Object.assign(config, {
+  mode: 'development',
   entry: './dev/App.jsx',
-  output: 'bundle.js',
-  devtool: 'eval-source-map',
-  devServer: {
-    contentBase: 'dev',
+  output:{
+    path: path.resolve(__dirname, 'dev'),
+    filename: 'bundle.js',
   },
+  devtool: 'eval-source-map',
   module: {
-    loaders: [
-      ...config.module.loaders,
+    rules: [
+      ...config.module.rules,
       {
-        test: /\.less$/,
-        loader: 'style-loader?insertAt=top!css-loader!less-loader',
-      },
-    ],
+      test: /\.less$/,
+      use: [
+        // compiles Less to CSS
+        "style-loader",
+        "css-loader",
+        "less-loader",
+      ],
+    }],
   },
 });
