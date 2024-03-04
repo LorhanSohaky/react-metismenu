@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 2024-03-04
+
+### Changed
+
+- update dependencies
+
 ## [1.3.1] - 2017-06-19
 ### Fixed
 - To avoid unneccessary renders, added some extra controls
